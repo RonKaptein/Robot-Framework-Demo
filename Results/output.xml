@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160218 17:48:18.728" generator="Robot 3.0 (Python 2.7.11 on win32)">
+<suite source="C:\development\robot-scripts\amazon\Tests\Amazon.robot" id="s1" name="Amazon">
+<kw type="setup" name="Insert Testing Data" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>I am setting up the test data...</arg>
+</arguments>
+<msg timestamp="20160218 17:48:19.019" level="INFO">I am setting up the test data...</msg>
+<status status="PASS" endtime="20160218 17:48:19.019" starttime="20160218 17:48:19.019"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:48:19.020" starttime="20160218 17:48:19.018"></status>
+</kw>
+<test id="s1-t1" name="User can search for products">
+<kw type="setup" name="Begin Web Test" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>ff</arg>
+</arguments>
+<msg timestamp="20160218 17:48:19.029" level="INFO">Opening browser 'ff' to base url 'about:blank'</msg>
+<status status="PASS" endtime="20160218 17:48:28.998" starttime="20160218 17:48:19.028"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:48:28.999" starttime="20160218 17:48:19.027"></status>
+</kw>
+<kw name="Search for Products" library="AmazonGui">
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.amazon.com</arg>
+</arguments>
+<msg timestamp="20160218 17:48:29.001" level="INFO">Opening url 'http://www.amazon.com'</msg>
+<status status="PASS" endtime="20160218 17:48:41.367" starttime="20160218 17:48:29.001"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:48:41.368" starttime="20160218 17:48:29.000"></status>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Your Amazon.com</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:48:42.496" starttime="20160218 17:48:41.369"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:48:42.496" starttime="20160218 17:48:41.368"></status>
+</kw>
+<kw name="Search for products" library="TopNav">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=twotabsearchtextbox</arg>
+<arg>Ferrari 458</arg>
+</arguments>
+<msg timestamp="20160218 17:48:42.498" level="INFO">Typing text 'Ferrari 458' into text field 'id=twotabsearchtextbox'</msg>
+<status status="PASS" endtime="20160218 17:48:47.638" starttime="20160218 17:48:42.497"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='nav-search']/form/div[2]/div/input</arg>
+</arguments>
+<msg timestamp="20160218 17:48:47.639" level="INFO">Clicking button 'xpath=//*[@id='nav-search']/form/div[2]/div/input'.</msg>
+<status status="PASS" endtime="20160218 17:48:59.726" starttime="20160218 17:48:47.638"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:48:59.726" starttime="20160218 17:48:42.497"></status>
+</kw>
+<kw name="Verify Search Completed" library="SearchResults">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>results for "Ferrari 458"</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:49:01.899" starttime="20160218 17:48:59.727"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:01.899" starttime="20160218 17:48:59.726"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:01.900" starttime="20160218 17:48:29.000"></status>
+</kw>
+<kw type="teardown" name="End Web Test" library="Common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160218 17:49:05.349" starttime="20160218 17:49:01.901"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:05.349" starttime="20160218 17:49:01.900"></status>
+</kw>
+<doc>Searching for Products</doc>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" endtime="20160218 17:49:05.349" critical="yes" starttime="20160218 17:48:19.021"></status>
+</test>
+<test id="s1-t2" name="User must sign in to check out">
+<kw type="setup" name="Begin Web Test" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>ff</arg>
+</arguments>
+<msg timestamp="20160218 17:49:05.748" level="INFO">Opening browser 'ff' to base url 'about:blank'</msg>
+<status status="PASS" endtime="20160218 17:49:27.327" starttime="20160218 17:49:05.747"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:27.328" starttime="20160218 17:49:05.746"></status>
+</kw>
+<kw name="Search for Products" library="AmazonGui">
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>http://www.amazon.com</arg>
+</arguments>
+<msg timestamp="20160218 17:49:27.331" level="INFO">Opening url 'http://www.amazon.com'</msg>
+<status status="PASS" endtime="20160218 17:49:36.222" starttime="20160218 17:49:27.330"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:36.222" starttime="20160218 17:49:27.329"></status>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Your Amazon.com</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:49:37.367" starttime="20160218 17:49:36.224"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:37.367" starttime="20160218 17:49:36.223"></status>
+</kw>
+<kw name="Search for products" library="TopNav">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=twotabsearchtextbox</arg>
+<arg>Ferrari 458</arg>
+</arguments>
+<msg timestamp="20160218 17:49:37.369" level="INFO">Typing text 'Ferrari 458' into text field 'id=twotabsearchtextbox'</msg>
+<status status="PASS" endtime="20160218 17:49:41.617" starttime="20160218 17:49:37.368"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='nav-search']/form/div[2]/div/input</arg>
+</arguments>
+<msg timestamp="20160218 17:49:41.618" level="INFO">Clicking button 'xpath=//*[@id='nav-search']/form/div[2]/div/input'.</msg>
+<status status="PASS" endtime="20160218 17:49:48.995" starttime="20160218 17:49:41.618"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:48.996" starttime="20160218 17:49:37.368"></status>
+</kw>
+<kw name="Verify Search Completed" library="SearchResults">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>results for "Ferrari 458"</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:49:51.352" starttime="20160218 17:49:48.996"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:51.352" starttime="20160218 17:49:48.996"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:51.353" starttime="20160218 17:49:27.329"></status>
+</kw>
+<kw name="Select Product from Search Results" library="AmazonGui">
+<kw name="Click Product link" library="SearchResults">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>css=#result_0 a.s-access-detail-page</arg>
+</arguments>
+<msg timestamp="20160218 17:49:51.358" level="INFO">Clicking link 'css=#result_0 a.s-access-detail-page'.</msg>
+<status status="PASS" endtime="20160218 17:49:51.875" starttime="20160218 17:49:51.357"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:51.900" starttime="20160218 17:49:51.357"></status>
+</kw>
+<kw name="Verify Page Loaded" library="Product">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Back to search results</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:49:59.365" starttime="20160218 17:49:51.901"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:59.365" starttime="20160218 17:49:51.901"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:49:59.366" starttime="20160218 17:49:51.356"></status>
+</kw>
+<kw name="Add Product to Cart" library="AmazonGui">
+<kw name="Add to cart" library="Product">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=add-to-cart-button</arg>
+</arguments>
+<msg timestamp="20160218 17:49:59.370" level="INFO">Clicking button 'id=add-to-cart-button'.</msg>
+<status status="PASS" endtime="20160218 17:50:00.336" starttime="20160218 17:49:59.370"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:00.336" starttime="20160218 17:49:59.369"></status>
+</kw>
+<kw name="Verify Product Added" library="Cart">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Added to Cart</arg>
+</arguments>
+<status status="PASS" endtime="20160218 17:50:04.108" starttime="20160218 17:50:00.337"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:04.109" starttime="20160218 17:50:00.336"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:04.109" starttime="20160218 17:49:59.369"></status>
+</kw>
+<kw name="Begin Checkout" library="AmazonGui">
+<kw name="Click to Proceed payment" library="Cart">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>id=hlb-ptc-btn-native</arg>
+</arguments>
+<msg timestamp="20160218 17:50:04.110" level="INFO">Clicking link 'id=hlb-ptc-btn-native'.</msg>
+<status status="PASS" endtime="20160218 17:50:04.481" starttime="20160218 17:50:04.110"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:04.481" starttime="20160218 17:50:04.110"></status>
+</kw>
+<kw name="Verify SignIn Page" library="SignIn">
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>id=signInSubmit</arg>
+</arguments>
+<msg timestamp="20160218 17:50:12.045" level="INFO">Current page contains element 'id=signInSubmit'.</msg>
+<status status="PASS" endtime="20160218 17:50:12.045" starttime="20160218 17:50:04.482"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:12.046" starttime="20160218 17:50:04.482"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:12.046" starttime="20160218 17:50:04.109"></status>
+</kw>
+<kw type="teardown" name="End Web Test" library="Common">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160218 17:50:13.303" starttime="20160218 17:50:12.047"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:13.303" starttime="20160218 17:50:12.047"></status>
+</kw>
+<doc>Selecting and Payment</doc>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" endtime="20160218 17:50:13.304" critical="yes" starttime="20160218 17:49:05.743"></status>
+</test>
+<kw type="teardown" name="Cleanup Testing Data" library="Common">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>I am cleaning up the data...</arg>
+</arguments>
+<msg timestamp="20160218 17:50:13.307" level="INFO">I am cleaning up the data...</msg>
+<status status="PASS" endtime="20160218 17:50:13.307" starttime="20160218 17:50:13.307"></status>
+</kw>
+<status status="PASS" endtime="20160218 17:50:13.307" starttime="20160218 17:50:13.306"></status>
+</kw>
+<doc>This is some basic infor the whole suite</doc>
+<status status="PASS" endtime="20160218 17:50:13.307" starttime="20160218 17:48:18.731"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="2">Smoke</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Amazon" pass="2">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
